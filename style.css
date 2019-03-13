@@ -1,0 +1,51 @@
+.animal{
+    height: 50px;
+    width: 50px;
+    display: flex;
+    flex-direction: row;
+
+}    
+.one{
+    background-color: red;
+    margin-right: 20px;
+}
+.two{
+    background-color: blue;
+    margin-right: 20px;
+}
+.three{
+    background-color: pink;
+}
+.menu{
+    height: 50px;
+    margin-top: 20px;
+}
+.alert1{
+    display: none;
+    height: 200px;
+    width: 200px;
+    margin-top: 30px;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+}
+.one_alert{
+    bottom: 50px;
+    background-color: green;
+    left: 0;
+    display: flex;
+}
+.two_alert{
+    top: 50px;
+    background-color: purple;
+    right: 0;
+    display: flex;
+    color: white;
+}
+.three_alert{
+    top: 50px;
+    background-color: gray;
+    right: 0;
+    display: flex;
+    color: black;
+}
