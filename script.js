@@ -1,62 +1,68 @@
-const one = document.querySelector('.one');
-const two = document.querySelector('.two');
-const three = document.querySelector('.three');
-const menu = document.querySelector('.menu');
-const alert1 = document.querySelector('.alert1');
+class Cultum{
+    constructor(){
+    this.one = document.querySelector('.one');
+    this.two = document.querySelector('.two');
+    this.three = document.querySelector('.three');
+    this.animal = document.querySelector('.animal');
+    this.message = document.querySelector('.message');
+    this.one.addEventListener('click', ()=>{ this.getValue();this.se()});
+    this.two.addEventListener('click', ()=>{ this.getValue();this.ve()});
+    this.three.addEventListener('click', ()=>{ this.getValue();this.ge()});
+    this.message.addEventListener('click',this.removemessage.bind(this));
+    }
+    getValue() {
+        this.select = this.animal.value;
+    }
 
-function getValue() {
-    select = menu.value;
+    alert_text(pos,text){
+        this.message.classList.add(pos);
+        this.message.innerHTML = text;
+        setTimeout(()=>this.message.classList.remove(pos),3000);
+    }
+    
+    se(){
+        let text, pos = 'message__one';
+        if (this.select == 'animal__fox') {         
+            text = 'Лиса хитрый зверь';
+        }
+        else if (this.select == 'animal__wolf') {
+            text = 'Волк вожак стаи';
+        }
+        else if (this.select == 'animal__peppa') {
+            text = 'Кабан дикий свин';
+        }
+        this.alert_text(pos,text); 
+    }
+    ve(){
+        let text, pos = 'message__two';
+        if (this.select == 'animal__fox') {
+            text = 'Он ничем не отличался от ста тысяч других лисиц';
+        }
+        else if (this.select == 'animal__wolf') {
+            text = 'Волк собирает грибы в лесу';
+        }
+        else if (this.select == 'animal__peppa') {
+            text ='Кабан свинья, которая не поддалась на уговоры';
+        }
+        this.alert_text(pos,text);
+    }
+    ge(){
+        let text, pos = 'message__three';
+        if (this.select == 'animal__fox') {
+            text = 'Рыжий лис';
+        }
+        else if (this.select == 'animal__wolf') {
+            text = 'Волк меняет шкуру, но не нрав';
+        }
+        else if (this.select == 'animal__peppa') {
+            text = 'Кабан санитар леса';
+        }
+        this.alert_text(pos,text);
+    }
+    removemessage(){
+        this.message.classList.remove('message__one');
+        this.message.classList.remove('message__two');
+        this.message.classList.remove('message__three');
+    }
 }
-
-one.addEventListener('click', ()=>{ getValue();se(); });
-function alert_text(pos,text){
-    alert1.classList.add(pos);
-    alert1.innerHTML = text;
-    setTimeout(()=>alert1.classList.remove(pos),3000)
-}
-
-function se(){
-    let text, pos = 'one_alert';
-    if (select == 'Sfox') {
-        console.log('Лиса хитрый зверь');
-        
-        text = 'Лиса хитрый зверь';
-    }
-    else if (select == 'Swolf') {
-        text = 'Волк вожак стаи';
-    }
-    else if (select == 'Speppa') {
-        text = 'Кабан дикий свин';
-    }
-    alert_text(pos,text); 
-}
-
-two.addEventListener('click', ()=>{ getValue();ve() });
-function ve(){
-    let text, pos = 'two_alert';
-    if (select == 'Sfox') {
-        text = 'Он ничем не отличался от ста тысяч других лисиц';
-    }
-    else if (select == 'Swolf') {
-        text = 'Волк собирает грибы в лесу';
-    }
-    else if (select == 'Speppa') {
-        text ='Кабан свинья, которая не поддалась на уговоры';
-    }
-    alert_text(pos,text);
-}
-
-three.addEventListener('click', ()=>{ getValue();ge() });
-function ge(){
-    let text, pos = 'three_alert';
-    if (select == 'Sfox') {
-        text = 'Рыжий лис';
-    }
-    else if (select == 'Swolf') {
-        text = 'Волк меняет шкуру, но не нрав';
-    }
-    else if (select == 'Speppa') {
-        text = 'Кабан санитар леса';
-    }
-    alert_text(pos,text);
-}
+window.onload = new Cultum();
