@@ -1,51 +1,73 @@
-.animal{
-    height: 50px;
-    width: 50px;
+body{
+    background-color: rgb(165, 218, 218);
+}
+h1{
+    text-align: center;
+    color: rgb(228, 23, 40);
+}
+.numbers{
+    width: 20%;
+    height: 5rem;
     display: flex;
-    flex-direction: row;
-
+    margin-top: 1%;
+    margin-left: 40%;
+    font-size: 3rem;
+    border-radius: 30px;
 }    
 .one{
-    background-color: red;
-    margin-right: 20px;
+    background-color: green;
 }
 .two{
-    background-color: blue;
-    margin-right: 20px;
+    background-color: purple;
+    color: white;
 }
 .three{
-    background-color: pink;
+    background-color: grey;
 }
-.menu{
-    height: 50px;
+select{
+    margin-left: 40%;
+    height: 5rem;
+    width: 20%;
+    text-align: center;
+    font-weight: bold;
+    background-color: brown;
+    font-size: 2rem;
+    color: white;
+    
+}
+.animal{
+    height: 2 rem;
     margin-top: 20px;
 }
-.alert1{
+.message{
     display: none;
-    height: 200px;
-    width: 200px;
-    margin-top: 30px;
-    position: fixed;
+    height: 30%;
+    width: 30%;
+    margin: 30px;
+    position: absolute;
     align-items: center;
     justify-content: center;
+    font-size: 3rem;
+    text-align: center;
+    border-radius:20px; 
 }
-.one_alert{
-    bottom: 50px;
+.message__one{
+    bottom: 0;
     background-color: green;
-    left: 0;
+    left: 0; 
     display: flex;
 }
-.two_alert{
-    top: 50px;
+.message__two{
+    top: 0;
     background-color: purple;
     right: 0;
     display: flex;
-    color: white;
+    color: white; 
 }
-.three_alert{
-    top: 50px;
+.message__three{
+    top: 0;
     background-color: gray;
     right: 0;
     display: flex;
-    color: black;
+    color: black; 
 }
