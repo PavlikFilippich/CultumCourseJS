@@ -1,6 +1,11 @@
 body{
     background-color: rgb(165, 218, 218);
 }
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 h1{
     text-align: center;
     color: rgb(228, 23, 40);
@@ -10,22 +15,23 @@ h1{
     height: 5rem;
     display: flex;
     margin-top: 1%;
-    margin-left: 40%;
     font-size: 3rem;
     border-radius: 30px;
-}    
-.one{
+    align-items: center;
+    justify-content: center;
+} 
+    
+.numbers__one{
     background-color: green;
 }
-.two{
+.numbers__two{
     background-color: purple;
     color: white;
 }
-.three{
+.numbers__three{
     background-color: grey;
 }
 select{
-    margin-left: 40%;
     height: 5rem;
     width: 20%;
     text-align: center;
@@ -33,41 +39,46 @@ select{
     background-color: brown;
     font-size: 2rem;
     color: white;
-    
+    margin-top: 3%;
 }
-.animal{
-    height: 2 rem;
-    margin-top: 20px;
+div{
+    align-items: center;
+    text-align: center;
 }
-.message{
-    display: none;
+.message__1{
+    background-color: green;
+    padding: 10px;
+    position: fixed;
+    z-index: 1;
+    left: 10px;
+    bottom: 10px;
     height: 30%;
     width: 30%;
-    margin: 30px;
-    position: absolute;
-    align-items: center;
-    justify-content: center;
     font-size: 3rem;
-    text-align: center;
     border-radius:20px; 
 }
-.message__one{
-    bottom: 0;
-    background-color: green;
-    left: 0; 
-    display: flex;
-}
-.message__two{
-    top: 0;
+.message__2{
     background-color: purple;
-    right: 0;
-    display: flex;
-    color: white; 
+    color: white;
+    padding: 10px;
+    position: fixed;
+    z-index: 1;
+    right: 10px;
+    top: 10px;
+    height: 30%;
+    width: 30%;
+    font-size: 3rem;
+    border-radius:20px; 
 }
-.message__three{
-    top: 0;
-    background-color: gray;
-    right: 0;
-    display: flex;
-    color: black; 
-}
+.message__3{
+    background-color: grey;
+    padding: 10px;
+    position: fixed;
+    z-index: 1;
+    right: 10px;
+    top: 10px;
+    height: 30%;
+    width: 30%;
+    font-size: 3rem;
+    border-radius:20px; 
+} 
