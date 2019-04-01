@@ -1,68 +1,40 @@
-class СlassificationAnimal{
-    constructor(){
-    this.one = document.querySelector('.one');
-    this.two = document.querySelector('.two');
-    this.three = document.querySelector('.three');
-    this.animal = document.querySelector('.animal');
-    this.message = document.querySelector('.message');
-    this.one.addEventListener('click', ()=>{ this.getValue();this.information_one()});
-    this.two.addEventListener('click', ()=>{ this.getValue();this.information_two()});
-    this.three.addEventListener('click', ()=>{ this.getValue();this.information_three()});
-    this.message.addEventListener('click',this.removemessage.bind(this));
+class СlassificationAnimal {
+    constructor(messageId, ...text) {
+        this.messageId = messageId;
+        this.text = text;
+        this.messages  = [...document.querySelectorAll('.message')];
+        this.selectValue = document.querySelector("#animal").value;
+        this.textAnimal = {
+            "animal__fox": [
+                'Лиса хитрый зверь',
+                'Он ничем не отличался от ста тысяч других лисиц',
+                'Рыжий лис'
+            ],
+            "animal__wolf": [
+                'Волк вожак стаи',
+                'Волк собирает грибы в лесу',
+                'Волк меняет шкуру, но не нрав'
+            ],
+            "animal__peppa": [
+                'Кабан дикий свин',
+                'Кабан свинья, которая не поддалась на уговоры',
+                'Кабан санитар леса'
+            ]
+        }
+        this.messages.forEach((elem, i) => {
+            elem.onclick = () => {
+                let message = new СlassificationAnimal(i, ...this.textAnimal[this.selectValue])
+                message.getMessage();         
+            }
+        })       
     }
-    getValue() {
-        this.select = this.animal.value;
-    }
-
-    alert_text(pos,text){
-        this.message.classList.add(pos);
-        this.message.innerHTML = text;
-        setTimeout(()=>this.message.classList.remove(pos),3000);
-    }
-    
-    information_one(){
-        let text, pos = 'message__one';
-        if (this.select === 'animal__fox') {         
-            text = 'Лиса хитрый зверь';
-        }
-        else if (this.select === 'animal__wolf') {
-            text = 'Волк вожак стаи';
-        }
-        else if (this.select === 'animal__peppa') {
-            text = 'Кабан дикий свин';
-        }
-        this.alert_text(pos,text); 
-    }
-    information_two(){
-        let text, pos = 'message__two';
-        if (this.select === 'animal__fox') {
-            text = 'Он ничем не отличался от ста тысяч других лисиц';
-        }
-        else if (this.select === 'animal__wolf') {
-            text = 'Волк собирает грибы в лесу';
-        }
-        else if (this.select === 'animal__peppa') {
-            text ='Кабан свинья, которая не поддалась на уговоры';
-        }
-        this.alert_text(pos,text);
-    }
-    information_three(){
-        let text, pos = 'message__three';
-        if (this.select === 'animal__fox') {
-            text = 'Рыжий лис';
-        }
-        else if (this.select === 'animal__wolf') {
-            text = 'Волк меняет шкуру, но не нрав';
-        }
-        else if (this.select === 'animal__peppa') {
-            text = 'Кабан санитар леса';
-        }
-        this.alert_text(pos,text);
-    }
-    removemessage(){
-        this.message.classList.remove('message__one');
-        this.message.classList.remove('message__two');
-        this.message.classList.remove('message__three');
+    getMessage(){
+        let message = document.createElement('div');
+        message.className = 'message__' + (this.messageId+1);
+        message.innerHTML = this.text[this.messageId];
+        document.body.appendChild(message);
+        message.onclick = event => event.target.remove();
+        setTimeout(()=> message.remove(), 3000);
     }
 }
 window.onload = new СlassificationAnimal();
